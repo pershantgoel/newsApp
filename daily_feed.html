@@ -1,0 +1,32 @@
+<div class="container">
+        <div class="page-header">
+           <h1>News API</h1>
+           <div class="row">
+              <div class="col-xs-12">
+                 <h3><strong>News-Categories ( {{category}} )</strong></h3>
+                 <div class="btn-toolbar">
+                    <button ng-click="categorize('')">All</button>    
+                    <button ng-click="categorize('business')">Business</button>
+                    <button ng-click="categorize('entertainment')">Entertainment</button>
+                    <button ng-click="categorize('health')">Health</button>
+                    <button ng-click="categorize('science')">Science</button>
+                    <button ng-click="categorize('sports')">Sports</button>
+                    <button ng-click="categorize('technology')">Technology</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-sm-4" ng-repeat="article in articles">
+              <div class="card">
+                 <img ng-src={{article.urlToImage}} class="img-responsive" alt="Image" style="width:100%">
+                 <h3 class="overflow ellipsis">{{article.title}}</h3>
+                 <p><strong>Source:</strong>{{article.source.name}}</p>
+                 <p class="overflow ellipsis"><strong>Author:</strong>{{article.author}}</p>
+                 <p class="overflow ellipsis"><strong>Description:</strong>{{article.description}}</p>
+                 <p><strong>Published At:</strong>{{article.publishedAt | date:'medium'}}</p>
+                 <a ng-href="{{article.url}}" target="_blank" ><button> Go To News Page</button></a>
+              </div>
+           </div>
+        </div>
+     </div>
